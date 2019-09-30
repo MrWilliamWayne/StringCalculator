@@ -8,7 +8,10 @@ namespace StringCalculator.Domain.Classes
     public class StrCalculator : IStringCalculator
     {
         private readonly ITermExtractor _termExtractor;
+
+        // TODO: Relocate to a settings class, which gets populated locally in Calculate
         private bool _allowNegativeNumbers = false;
+        private int _maxValue = 1000;
 
         public StrCalculator(ITermExtractor termExtractor)
         {
@@ -22,8 +25,8 @@ namespace StringCalculator.Domain.Classes
             var result = new StringCalculationResult();
             terms.ForEach(t =>
             {
-                result.AddTerm(t);
-
+                // Enforce the max value, substituting an Emtpy Term in its place if it's too large.
+                result.AddTerm(t.Value <= _maxValue ? t : Term.Empty);
             });
 
             if (!_allowNegativeNumbers && result.NegativeNumbers.Any())

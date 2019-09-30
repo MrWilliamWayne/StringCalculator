@@ -20,7 +20,7 @@ namespace StringCalculator.UnitTest
         public void EmptyString()
         {
             var testInput = string.Empty;
-            var expectedResults = new List<Term> { new Term("0"), new Term("0") };
+            var expectedResults = new List<Term> { Term.Empty, Term.Empty };
             RunTest(testInput, expectedResults);
         }
 
@@ -28,7 +28,7 @@ namespace StringCalculator.UnitTest
         public void DelimiterOnly()
         {
             const string testInput = ",";
-            var expectedResults = new List<Term> { new Term("0"), new Term("0") };
+            var expectedResults = new List<Term> { Term.Empty, Term.Empty };
             RunTest(testInput, expectedResults);
         }
 
@@ -36,7 +36,7 @@ namespace StringCalculator.UnitTest
         public void NumberOnly()
         {
             const string testInput = "5";
-            var expectedResult = new List<Term> { new Term("5"), new Term("0") };
+            var expectedResult = new List<Term> { new Term("5"), Term.Empty };
             RunTest(testInput, expectedResult);
         }
 
@@ -44,7 +44,7 @@ namespace StringCalculator.UnitTest
         public void NumberAndDelimiter()
         {
             const string testInput = "5,";
-            var expectedResult = new List<Term> { new Term("5"), new Term("0") };
+            var expectedResult = new List<Term> { new Term("5"), Term.Empty };
             RunTest(testInput, expectedResult);
         }
 
@@ -52,7 +52,7 @@ namespace StringCalculator.UnitTest
         public void DelimiterAndNumber()
         {
             const string testInput = ",5";
-            var expectedResult = new List<Term> { new Term("0"), new Term("5") };
+            var expectedResult = new List<Term> { Term.Empty, new Term("5") };
             RunTest(testInput, expectedResult);
         }
 
@@ -60,7 +60,7 @@ namespace StringCalculator.UnitTest
         public void StringOperand()
         {
             const string testInput = "fdhreg";
-            var expectedResult = new List<Term> { new Term("0"), new Term("0") };
+            var expectedResult = new List<Term> { Term.Empty, Term.Empty };
             RunTest(testInput, expectedResult);
         }
 
@@ -68,7 +68,7 @@ namespace StringCalculator.UnitTest
         public void TwoStringOperands()
         {
             const string testInput = "fdhreg,dfslj";
-            var expectedResult = new List<Term> { new Term("0"), new Term("0") };
+            var expectedResult = new List<Term> { Term.Empty, Term.Empty };
             RunTest(testInput, expectedResult);
         }
 
@@ -76,7 +76,7 @@ namespace StringCalculator.UnitTest
         public void NumberAndStringOperands()
         {
             const string testInput = "22,fdhreg";
-            var expectedResult = new List<Term> { new Term("22"), new Term("0") };
+            var expectedResult = new List<Term> { new Term("22"), Term.Empty };
             RunTest(testInput, expectedResult);
         }
 
@@ -84,7 +84,7 @@ namespace StringCalculator.UnitTest
         public void StringAndNumberOperands()
         {
             const string testInput = "hrtr,21";
-            var expectedResult = new List<Term> { new Term("0"), new Term("21") };
+            var expectedResult = new List<Term> { Term.Empty, new Term("21") };
             RunTest(testInput, expectedResult);
         }
 
