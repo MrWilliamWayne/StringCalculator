@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 using StringCalculator.Domain.Interfaces;
 
 namespace StringCalculator.Domain.Classes
@@ -7,6 +8,7 @@ namespace StringCalculator.Domain.Classes
     {
         private int _calculationResult;
         private readonly StringBuilder _formula = new StringBuilder();
+        private readonly List<int> _negativeNumbers = new List<int>();
 
         public StringCalculationResult() { }
 
@@ -27,6 +29,11 @@ namespace StringCalculator.Domain.Classes
         /// The string representation of the calculation of all processed terms with the calculated result
         /// </summary>
         public string Formula => _formula.ToString();
+
+        /// <summary>
+        /// Returns the list of negative numbers in the formula
+        /// </summary>
+        public IEnumerable<int> NegativeNumbers => _negativeNumbers;
         #endregion
 
         /// <summary>
@@ -37,6 +44,8 @@ namespace StringCalculator.Domain.Classes
         {
             AddTermToResult(term);
             AppendTermToFormula(term);
+            if (term.Value < 0)
+                _negativeNumbers.Add(term.Value);
         }
 
         #region Private Methods
