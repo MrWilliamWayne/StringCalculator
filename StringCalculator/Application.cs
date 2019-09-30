@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using StringCalculator.Domain.Interfaces;
 
 namespace StringCalculator
@@ -24,6 +25,11 @@ namespace StringCalculator
             while (!exitApplication)
             {
                 var userInput = PromptUserForInput();
+
+                Thread.Sleep(100); // Yuck
+                if (exitApplication) // potential race condition?
+                    break;
+                
                 Console.WriteLine();
 
                 try

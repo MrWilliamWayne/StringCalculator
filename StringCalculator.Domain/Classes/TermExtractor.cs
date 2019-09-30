@@ -17,7 +17,7 @@ namespace StringCalculator.Domain.Classes
                 results.Add(new Term(string.Empty));
             }
 
-            return results.GetRange(0, 2); // Only allow 2 operands
+            return results;
         }
     }
 }
