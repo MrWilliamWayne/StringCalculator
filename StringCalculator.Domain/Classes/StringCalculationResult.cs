@@ -26,7 +26,7 @@ namespace StringCalculator.Domain.Classes
         /// <summary>
         /// The string representation of the calculation of all processed terms with the calculated result
         /// </summary>
-        public string Formula => _formula + $" = {_calculationResult}";
+        public string Formula => _formula.ToString();
         #endregion
 
         /// <summary>
@@ -63,6 +63,11 @@ namespace StringCalculator.Domain.Classes
                 return false;
 
             return CalculationResult == other.CalculationResult && Formula.Equals(other.Formula);
+        }
+
+        public override string ToString()
+        {
+            return Formula + $" = {_calculationResult}";
         }
 
         #endregion

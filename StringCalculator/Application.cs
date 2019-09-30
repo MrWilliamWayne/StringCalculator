@@ -22,7 +22,7 @@ namespace StringCalculator
                 exitApplication = true;
             };
 
-            while (!exitApplication)
+            while (true)
             {
                 var userInput = PromptUserForInput();
 
@@ -36,10 +36,7 @@ namespace StringCalculator
                 {
                     var calcResult = _stringCalculator.Calculate(userInput);
 
-                    if (null != calcResult)
-                    {
-                        Console.WriteLine(calcResult.Formula);
-                    }
+                    Console.WriteLine(calcResult);
                 }
                 catch (Exception e)
                 {
