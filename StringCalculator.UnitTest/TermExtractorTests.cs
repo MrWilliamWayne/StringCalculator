@@ -96,14 +96,6 @@ namespace StringCalculator.UnitTest
             RunTest(testInput, expectedResult);
         }
 
-        [TestMethod]
-        public void ThirdOperandIsIgnored()
-        {
-            const string testInput = "3,21,53";
-            var expectedResult = new List<Term> { new Term("3"), new Term("21") };
-            RunTest(testInput, expectedResult);
-        }
-
 
         private void RunTest(string testInput, IReadOnlyList<Term> expectedResults)
         {
