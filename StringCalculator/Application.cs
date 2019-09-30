@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using StringCalculator.Domain.Exceptions;
 using StringCalculator.Domain.Interfaces;
 
 namespace StringCalculator
@@ -37,6 +38,10 @@ namespace StringCalculator
                     var calcResult = _stringCalculator.Calculate(userInput);
 
                     Console.WriteLine(calcResult);
+                }
+                catch (NegativeNumbersException nne)
+                {
+                    Console.WriteLine($"Negative numbers are disallowed. The following negative numbers were input:{Environment.NewLine}{string.Join(", ", nne.NegativeNumbers)}{Environment.NewLine}");
                 }
                 catch (Exception e)
                 {

@@ -6,7 +6,7 @@ namespace StringCalculator.UnitTest
 {
     public class StringCalculatorUnitTestBase
     {
-        private readonly IStringCalculator _calculator;
+        protected readonly IStringCalculator _calculator;
 
         public StringCalculatorUnitTestBase()
         {

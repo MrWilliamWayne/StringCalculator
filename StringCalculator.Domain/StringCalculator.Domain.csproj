@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\TermExtractor.cs" />
+    <Compile Include="Exceptions\NegativeNumbersException.cs" />
     <Compile Include="Interfaces\ITermExtractor.cs" />
     <Compile Include="Classes\StrCalculator.cs" />
     <Compile Include="Classes\StringCalculationResult.cs" />

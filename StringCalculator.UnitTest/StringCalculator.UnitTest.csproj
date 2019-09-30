@@ -52,6 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringCalculatorUnitTestBase.cs" />
     <Compile Include="StringCalculatorUnitTestsPart1.cs" />
+    <Compile Include="StringCalculatorUnitTestsPart4.cs" />
     <Compile Include="StringCalculatorUnitTestsPart3.cs" />
     <Compile Include="StringCalculatorUnitTestsPart2.cs" />
     <Compile Include="TermExtractorTests.cs" />
