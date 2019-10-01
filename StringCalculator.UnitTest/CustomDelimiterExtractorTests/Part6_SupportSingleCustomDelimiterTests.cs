@@ -38,7 +38,7 @@ namespace StringCalculator.UnitTest.CustomDelimiterExtractorTests
         public void MultiCharacterDelimitersAreNotSupportedWithoutBrackets()
         {
             var testInput = $"//abc\n1;5,1000{Environment.NewLine}1001,5000";
-            var expectedResult = new List<string> { "a" };
+            var expectedResult = new List<string> { };
             expectedResult.AddRange(_defaultDelimiters);
             RunTest(testInput, expectedResult);
         }

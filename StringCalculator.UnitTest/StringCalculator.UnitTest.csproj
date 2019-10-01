@@ -51,7 +51,10 @@
   <ItemGroup>
     <Compile Include="CustomDelimiterExtractorTests\Part6_SupportSingleCustomDelimiterTests.cs" />
     <Compile Include="CustomDelimiterExtractorTests\CustomDelimiterExtractorTestBase.cs" />
+    <Compile Include="CustomDelimiterExtractorTests\Part8_MultipleCustomDelimiterTests.cs" />
+    <Compile Include="CustomDelimiterExtractorTests\Part7_MultiCharCustomDelimiterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringCalculatorTests\Part7_MultiCharCustomDelimiterTests.cs" />
     <Compile Include="StringCalculatorTests\StringCalculatorUnitTestBase.cs" />
     <Compile Include="StringCalculatorTests\Part1_BasicRequirementsTests.cs" />
     <Compile Include="StringCalculatorTests\Part5_MaxValueFilterTests.cs" />
@@ -64,6 +67,7 @@
     <Compile Include="TermExtractorTests\Part4_RejectFormulasWithNegativeNumbersTests.cs" />
     <Compile Include="TermExtractorTests\Part5_MaxValueFilterTests.cs" />
     <Compile Include="TermExtractorTests\Part6_SupportSingleCustomDelimiterTests.cs" />
+    <Compile Include="TermExtractorTests\Part7_MultiCharCustomDelimiterTests.cs" />
     <Compile Include="TermExtractorTests\TermExtractorTestBase.cs" />
     <Compile Include="TermExtractorTests\Part1_BasicRequirementsTests.cs" />
   </ItemGroup>

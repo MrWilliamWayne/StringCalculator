@@ -27,7 +27,7 @@ namespace StringCalculator.UnitTest.StringCalculatorTests
         public void MultiCharacterDelimitersAreNotSupportedWithoutBrackets()
         {
             var testInput = $"//abc\n1,abc,1000{Environment.NewLine}1001,60abc10";
-            var expectedResult = new StringCalculationResult(1061, "1+0+0+1000+0+60+0");
+            var expectedResult = new StringCalculationResult(1001, "1+0+1000+0+0");
             RunTest(testInput, expectedResult);
         }
     }
