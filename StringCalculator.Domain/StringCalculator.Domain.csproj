@@ -44,6 +44,7 @@
     <Compile Include="Classes\CustomDelimiterExtractor.cs" />
     <Compile Include="Classes\TermExtractor.cs" />
     <Compile Include="Exceptions\NegativeNumbersException.cs" />
+    <Compile Include="Helpers\OperationsHelper.cs" />
     <Compile Include="Interfaces\ICustomDelimiterExtractor.cs" />
     <Compile Include="Interfaces\ITermExtractor.cs" />
     <Compile Include="Classes\StrCalculator.cs" />

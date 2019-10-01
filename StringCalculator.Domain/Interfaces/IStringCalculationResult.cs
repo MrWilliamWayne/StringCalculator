@@ -6,6 +6,6 @@ namespace StringCalculator.Domain.Interfaces
     {
         int CalculationResult { get; }
         string Formula { get; }
-        void AddTerm(Term term);
+        void ProcessTerm(Term term);
     }
 }

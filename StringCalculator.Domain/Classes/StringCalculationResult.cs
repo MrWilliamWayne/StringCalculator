@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
+using StringCalculator.Domain.Enumerations;
+using StringCalculator.Domain.Helpers;
 using StringCalculator.Domain.Interfaces;
 
 namespace StringCalculator.Domain.Classes
 {
     public class StringCalculationResult : IStringCalculationResult
     {
-        private int _calculationResult;
         private readonly StringBuilder _formula = new StringBuilder();
         private readonly List<int> _negativeNumbers = new List<int>();
 
@@ -14,7 +16,7 @@ namespace StringCalculator.Domain.Classes
 
         public StringCalculationResult(int calculationResult, string formula)
         {
-            _calculationResult = calculationResult;
+            CalculationResult = calculationResult;
             _formula.Append(formula);
         }
 
@@ -23,7 +25,7 @@ namespace StringCalculator.Domain.Classes
         /// <summary>
         /// The total Calculation Result
         /// </summary>
-        public int CalculationResult => _calculationResult;
+        public int CalculationResult { get; private set; }
 
         /// <summary>
         /// The string representation of the calculation of all processed terms with the calculated result
@@ -37,28 +39,58 @@ namespace StringCalculator.Domain.Classes
         #endregion
 
         /// <summary>
-        /// Adds a term to the StringCalculationResult
+        /// Processes a new term, which updates the cumulative result and formula.
+        /// Note that all calculations are made in-order and do not respect PEMDAS.
         /// </summary>
         /// <param name="term"></param>
-        public void AddTerm(Term term)
+        public void ProcessTerm(Term term)
         {
-            AddTermToResult(term);
+            UpdateResultWithTermValue(term);
             AppendTermToFormula(term);
             if (term.Value < 0)
                 _negativeNumbers.Add(term.Value);
         }
 
         #region Private Methods
-        private void AddTermToResult(Term term)
+        private void UpdateResultWithTermValue(Term term)
         {
-            _calculationResult += term.Value;
+            switch (term.Operation)
+            {
+                case Operations.Addition:
+                    CalculationResult += term.Value;
+                    return;
+
+                case Operations.Subtraction:
+                    CalculationResult -= term.Value;
+                    return;
+
+                case Operations.Multiplication:
+                    CalculationResult *= term.Value;
+                    return;
+
+                case Operations.Division:
+                    if (term.Value == 0)
+                        throw new DivideByZeroException("Illegal operation - divide by zero");
+
+                    CalculationResult /= term.Value;
+                    return;
+
+                default:
+                    throw new NotSupportedException($"The specified Operation ({term.Operation.ToString()}) is not supported.");
+            }
         }
 
         private void AppendTermToFormula(Term term)
         {
-            if (_formula.Length > 0)
-                _formula.Append("+");
+            // If we are processing the first term, and the operation is not Addition, display the implicit first 0 in the results
+            if (_formula.Length == 0 && term.Operation != Operations.Addition)
+                _formula.Append("0");
 
+            // Append the operation symbol if the current formula has any previous value
+            if (_formula.Length > 0)
+                _formula.Append(OperationsHelper.GetOperationSymbol(term.Operation));
+
+            // Append the actual value to the formula
             _formula.Append(term.Value.ToString());
         }
         #endregion
@@ -76,7 +108,7 @@ namespace StringCalculator.Domain.Classes
 
         public override string ToString()
         {
-            return Formula + $" = {_calculationResult}";
+            return Formula + $" = {CalculationResult}";
         }
 
         #endregion

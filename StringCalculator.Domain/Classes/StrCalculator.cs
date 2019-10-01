@@ -31,7 +31,7 @@ namespace StringCalculator.Domain.Classes
                     break;
 
                 // Enforce the max value, substituting an Emtpy Term in its place if it's too large.
-                result.AddTerm(term.Value <= _maxValue ? term : Term.Empty);
+                result.ProcessTerm(term.Value <= _maxValue ? term : Term.Empty);
             }
 
             if (!_allowNegativeNumbers && result.NegativeNumbers.Any())
