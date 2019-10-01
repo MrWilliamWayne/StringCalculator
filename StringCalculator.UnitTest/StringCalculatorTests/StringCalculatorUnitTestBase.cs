@@ -10,7 +10,7 @@ namespace StringCalculator.UnitTest.StringCalculatorTests
 
         protected StringCalculatorUnitTestBase()
         {
-            _calculator = new StrCalculator(new TermExtractor());
+            _calculator = new StrCalculator(new TermExtractor(new CustomDelimiterExtractor()));
         }
 
         protected void RunTest(string testInput, IStringCalculationResult expectedResult)

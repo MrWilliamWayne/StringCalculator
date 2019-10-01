@@ -12,7 +12,7 @@ namespace StringCalculator.UnitTest.TermExtractorTests
 
         protected TermExtractorTestBase()
         {
-            _termExtractor = new TermExtractor();
+            _termExtractor = new TermExtractor(new CustomDelimiterExtractor());
         }
 
         protected void RunTest(string testInput, IReadOnlyList<Term> expectedResults)

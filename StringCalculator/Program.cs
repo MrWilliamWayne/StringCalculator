@@ -15,6 +15,7 @@ namespace StringCalculator
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<Application>();
+            builder.RegisterType<CustomDelimiterExtractor>().As<ICustomDelimiterExtractor>();
             builder.RegisterType<TermExtractor>().As<ITermExtractor>();
             builder.RegisterType<StrCalculator>().As<IStringCalculator>();
             return builder.Build();
