@@ -1,8 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StringCalculator.Domain.Classes;
 
-namespace StringCalculator.UnitTest
+namespace StringCalculator.UnitTest.StringCalculatorTests
 {
     [TestClass]
     public class Part5_MaxValueFilterTests : StringCalculatorUnitTestBase

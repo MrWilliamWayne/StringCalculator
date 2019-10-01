@@ -1,21 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StringCalculator.Domain.Classes;
-using StringCalculator.Domain.Interfaces;
 
-namespace StringCalculator.UnitTest
+namespace StringCalculator.UnitTest.TermExtractorTests
 {
     [TestClass]
-    public class TermExtractorTests
+    public class Part1_BasicRequirementsTests : TermExtractorTestBase
     {
-        private readonly ITermExtractor _termExtractor;
-
-        public TermExtractorTests()
-        {
-            _termExtractor = new TermExtractor();
-        }
-
         [TestMethod]
         public void EmptyString()
         {
@@ -96,17 +87,14 @@ namespace StringCalculator.UnitTest
             RunTest(testInput, expectedResult);
         }
 
+        // Part 2
 
-        private void RunTest(string testInput, IReadOnlyList<Term> expectedResults)
+        [TestMethod]
+        public void UnlimitedTermsSupported()
         {
-            var actualResults = _termExtractor.GetTerms(testInput).ToList();
-
-            Assert.AreEqual(expectedResults.Count, actualResults.Count, "Term count mismatch");
-
-            for (var i = 0; i < expectedResults.Count; i++)
-            {
-                Assert.AreEqual(expectedResults[i], actualResults[i]);
-            }
+            const string testInput = "3,21,gfd,65,845,,0";
+            var expectedResult = new List<Term> { new Term("3"), new Term("21"), Term.Empty, new Term("65"), new Term("845"), Term.Empty, new Term("0") };
+            RunTest(testInput, expectedResult);
         }
     }
 }

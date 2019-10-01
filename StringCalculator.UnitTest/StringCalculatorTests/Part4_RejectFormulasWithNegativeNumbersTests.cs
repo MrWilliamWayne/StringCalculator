@@ -1,9 +1,8 @@
 ﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using StringCalculator.Domain.Classes;
 using StringCalculator.Domain.Exceptions;
 
-namespace StringCalculator.UnitTest
+namespace StringCalculator.UnitTest.StringCalculatorTests
 {
     [TestClass]
     public class Part4_RejectFormulasWithNegativeNumbersTests : StringCalculatorUnitTestBase

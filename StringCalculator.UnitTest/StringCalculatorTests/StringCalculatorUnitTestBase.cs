@@ -2,13 +2,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StringCalculator.Domain.Classes;
 using StringCalculator.Domain.Interfaces;
 
-namespace StringCalculator.UnitTest
+namespace StringCalculator.UnitTest.StringCalculatorTests
 {
-    public class StringCalculatorUnitTestBase
+    public abstract class StringCalculatorUnitTestBase
     {
         protected readonly IStringCalculator _calculator;
 
-        public StringCalculatorUnitTestBase()
+        protected StringCalculatorUnitTestBase()
         {
             _calculator = new StrCalculator(new TermExtractor());
         }
