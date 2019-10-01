@@ -86,15 +86,5 @@ namespace StringCalculator.UnitTest.TermExtractorTests
             var expectedResult = new List<Term> { new Term("3"), new Term("21") };
             RunTest(testInput, expectedResult);
         }
-
-        // Part 2
-
-        [TestMethod]
-        public void UnlimitedTermsSupported()
-        {
-            const string testInput = "3,21,gfd,65,845,,0";
-            var expectedResult = new List<Term> { new Term("3"), new Term("21"), Term.Empty, new Term("65"), new Term("845"), Term.Empty, new Term("0") };
-            RunTest(testInput, expectedResult);
-        }
     }
 }

@@ -20,11 +20,7 @@ namespace StringCalculator.UnitTest.TermExtractorTests
             var actualResults = _termExtractor.GetTerms(testInput).ToList();
 
             Assert.AreEqual(expectedResults.Count, actualResults.Count, "Term count mismatch");
-
-            for (var i = 0; i < expectedResults.Count; i++)
-            {
-                Assert.AreEqual(expectedResults[i], actualResults[i]);
-            }
+            Assert.IsTrue(expectedResults.SequenceEqual(actualResults));
         }
     }
 }
