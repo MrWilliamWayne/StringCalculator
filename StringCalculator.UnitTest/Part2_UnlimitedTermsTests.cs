@@ -4,7 +4,7 @@ using StringCalculator.Domain.Classes;
 namespace StringCalculator.UnitTest
 {
     [TestClass]
-    public class StringCalculatorUnitTestsPart2 : StringCalculatorUnitTestBase
+    public class Part2_UnlimitedTermsTests : StringCalculatorUnitTestBase
     {
         [TestMethod]
         public void CalculatorSupportsManyValues()

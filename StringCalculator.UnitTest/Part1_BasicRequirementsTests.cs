@@ -4,7 +4,7 @@ using StringCalculator.Domain.Classes;
 namespace StringCalculator.UnitTest
 {
     [TestClass]
-    public class StringCalculatorUnitTestsPart1 : StringCalculatorUnitTestBase
+    public class Part1_BasicRequirementsTests : StringCalculatorUnitTestBase
     {
         [TestMethod]
         public void EmptyStringShouldResultInZero()

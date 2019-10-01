@@ -51,11 +51,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringCalculatorUnitTestBase.cs" />
-    <Compile Include="StringCalculatorUnitTestsPart1.cs" />
-    <Compile Include="StringCalculatorUnitTestsPart5.cs" />
-    <Compile Include="StringCalculatorUnitTestsPart4.cs" />
-    <Compile Include="StringCalculatorUnitTestsPart3.cs" />
-    <Compile Include="StringCalculatorUnitTestsPart2.cs" />
+    <Compile Include="Part1_BasicRequirementsTests.cs" />
+    <Compile Include="Part5_MaxValueFilterTests.cs" />
+    <Compile Include="Part4_RejectFormulasWithNegativeNumbersTests.cs" />
+    <Compile Include="Part3_NewLineDelimiterSupportTests.cs" />
+    <Compile Include="Part2_UnlimitedTermsTests.cs" />
     <Compile Include="TermExtractorTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@ using StringCalculator.Domain.Exceptions;
 namespace StringCalculator.UnitTest
 {
     [TestClass]
-    public class StringCalculatorUnitTestsPart4 : StringCalculatorUnitTestBase
+    public class Part4_RejectFormulasWithNegativeNumbersTests : StringCalculatorUnitTestBase
     {
         [TestMethod]
         public void NegativeNumbersAreNotSupported()
