@@ -1,3 +1,4 @@
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StringCalculator.Domain.Classes;
 using StringCalculator.Domain.Interfaces;
@@ -15,7 +16,7 @@ namespace StringCalculator.UnitTest.StringCalculatorTests
 
         protected void RunTest(string testInput, IStringCalculationResult expectedResult)
         {
-            var actualResult = _calculator.Calculate(testInput);
+            var actualResult = _calculator.Calculate(testInput, CancellationToken.None);
 
             Assert.AreEqual(expectedResult, actualResult, $"Test Failed for user input '{testInput}'");
         }

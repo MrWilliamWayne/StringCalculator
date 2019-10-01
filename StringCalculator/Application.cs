@@ -7,7 +7,7 @@ namespace StringCalculator
 {
     class Application
     {
-        private bool exitApplication = false;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         private readonly IStringCalculator _stringCalculator;
 
         public Application(IStringCalculator stringCalculator)
@@ -20,22 +20,20 @@ namespace StringCalculator
             Console.CancelKeyPress += (sender, args) =>
             {
                 args.Cancel = true;
-                exitApplication = true;
+                _cancellationTokenSource.Cancel();
             };
 
-            while (true)
+            while (!_cancellationTokenSource.IsCancellationRequested)
             {
                 var userInput = PromptUserForInput();
-
-                Thread.Sleep(100); // Yuck
-                if (exitApplication) // potential race condition?
-                    break;
-                
                 Console.WriteLine();
+
+                if (_cancellationTokenSource.IsCancellationRequested)
+                    return;
 
                 try
                 {
-                    var calcResult = _stringCalculator.Calculate(userInput);
+                    var calcResult = _stringCalculator.Calculate(userInput, _cancellationTokenSource.Token);
 
                     Console.WriteLine(calcResult);
                 }

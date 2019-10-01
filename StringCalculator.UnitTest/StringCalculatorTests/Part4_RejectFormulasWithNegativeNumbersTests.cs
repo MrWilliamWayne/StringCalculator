@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StringCalculator.Domain.Exceptions;
 
@@ -15,7 +16,7 @@ namespace StringCalculator.UnitTest.StringCalculatorTests
 
             try
             {
-                _calculator.Calculate(testInput);
+                _calculator.Calculate(testInput, CancellationToken.None);
                 Assert.Fail("Expected a NegativeNumbersException");
             }
             catch (NegativeNumbersException e)
@@ -33,7 +34,7 @@ namespace StringCalculator.UnitTest.StringCalculatorTests
 
             try
             {
-                _calculator.Calculate(testInput);
+                _calculator.Calculate(testInput, CancellationToken.None);
                 Assert.Fail("Expected a NegativeNumbersException");
             }
             catch (NegativeNumbersException e)
